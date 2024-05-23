@@ -1,4 +1,4 @@
-// src/components/Welcome1.jsx
+src/components/Welcome1.jsx
 
 import React from "react";
 
