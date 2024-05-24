@@ -10,13 +10,21 @@ function Posts() {
   const [error, setError] = useState(false);
 
   async function fetchAndUpdateData() {
+    setLoading(true)
     try {
       {
-        /*Complete the missing code*/
+        let res = await axios({
+          method: "get",
+          url: `https://reqres.in/api/users`,
+        });
+  
+        setPosts(res?.data?.data);
+        setLoading(false);
       }
     } catch (error) {
       {
-        /*Complete the missing code*/
+        setError(true);
+        setLoading(false);
       }
     }
   }
@@ -35,7 +43,9 @@ function Posts() {
       <button onClick={fetchAndUpdateData}>
         Click to display list of posts
       </button>
-      {/*Complete the missing code*/}
+      {posts?.map((post) => (
+        <Post {...post} key={post.id} />
+      ))}
     </div>
   );
 }
