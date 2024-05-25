@@ -39,7 +39,7 @@ function Posts() {
     <div>
       <h1>List of Posts</h1>
       {posts?.map((post) => (
-        <User {...post} key={post.id} />
+        <Post {...post} key={post.id} />
       ))}
        </div>
   );
